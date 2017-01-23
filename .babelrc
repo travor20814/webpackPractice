@@ -1,0 +1,34 @@
+{
+  "env": {
+    "production": {
+      "presets": [
+        "es2015",
+        "stage-1",
+        "react",
+      ],
+      "plugins": [
+        "transform-runtime",
+      ],
+    },
+    "development": {
+      "presets": [
+        "es2015",
+        "stage-1",
+        "react",
+      ],
+      "plugins": [
+        "transform-runtime",
+      ],
+    },
+    "test": {
+      "presets": [
+        "es2015",
+        "stage-1",
+        "react",
+      ],
+      "plugins": [
+        "transform-runtime",
+      ],
+    }
+  }
+}

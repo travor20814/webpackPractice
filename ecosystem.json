@@ -3,11 +3,12 @@
     "cwd": "client",
     "name": "WEB_Client",
     "script": "devServer.js",
+    "interpreter": "../node_modules/.bin/babel-node",
     "env": {
       "PORT": 6789,
       "NODE_ENV": "development",
       "DEBUG": "WEB:*",
-      "DEV_API_HOST": "http://localhost:8200",
+      "DEV_API_HOST": "",
       "API_HOST": "/api",
     },
   }]
