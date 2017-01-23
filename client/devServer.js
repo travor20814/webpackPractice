@@ -17,6 +17,13 @@ const webpackConfig = webpack({
     path: __dirname,
     filename: 'bundle.js',
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      URL_BASEPATH: `"${process.env.URL_BASEPATH || '/'}"`,
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+  ],
   module: {
     loaders: [{
       test: /\.jsx?$/,

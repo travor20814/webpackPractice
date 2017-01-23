@@ -24,7 +24,7 @@ import {
 } from 'react-redux';
 
 const history = useRouterHistory(createHistory)({
-  basename: '/',
+  basename: URL_BASEPATH,
 });
 
 export const store = createStore(reducer, {}, compose(

@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 
 const styles = {
   wrapper: {
-
+    fontSize: 30,
   },
 };
 
@@ -23,7 +23,7 @@ class IndexPage extends Component {
 }
 
 IndexPage.PropTypes = {
-  
+
 };
 
 export default connect(
