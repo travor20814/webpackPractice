@@ -11,8 +11,12 @@ const PORT = process.env.DEV_PORT || process.env.PORT || 6789;
 const app = express();
 
 const webpackConfig = webpack({
-  devtool: 'cheap-eval-source-map',
-  entry: path.join(__dirname, 'entry.js'),
+  devtool: 'eval',
+  entry: [
+    'webpack-hot-middleware/client', // hot reloading
+    'babel-polyfill', // hot reloading
+    path.join(__dirname, 'entry.js'),
+  ],
   output: {
     path: __dirname,
     filename: 'bundle.js',
