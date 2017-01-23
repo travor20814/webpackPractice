@@ -1,0 +1,19 @@
+import path from 'path';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import express from 'express';
+import debug from 'debug';
+
+const debugServer = debug('WEB:DevServer');
+
+const PORT = process.env.DEV_PORT || process.env.PORT || 6789;
+const app = express();
+
+app.listen(PORT, (err) => {
+  if (err) {
+    debug(err);
+  } else {
+    debugServer(`Client Dev Server running on port: ${PORT}`);
+  }
+});
