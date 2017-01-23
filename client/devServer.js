@@ -11,7 +11,7 @@ const PORT = process.env.DEV_PORT || process.env.PORT || 6789;
 const app = express();
 
 const webpackConfig = webpack({
-  devtool: 'eval',
+  devtool: 'cheap-eval-source-map',
   entry: [
     'webpack-hot-middleware/client', // hot reloading
     'babel-polyfill', // hot reloading
