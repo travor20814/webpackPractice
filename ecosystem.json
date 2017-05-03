@@ -2,14 +2,20 @@
   "apps": [{
     "cwd": "client",
     "name": "WEB_Client",
-    "script": "devServer.js",
-    "interpreter": "../node_modules/.bin/babel-node",
+    "script": "webpack.config.js",
+    "interpreter": "../node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "interpreter_args": "--config",
     "env": {
       "PORT": 6789,
-      "NODE_ENV": "development",
-      "DEBUG": "WEB:*",
       "DEV_API_HOST": "",
-      "API_HOST": "/api",
+      "DEBUG": "WEB:*",
+      "NODE_ENV": "development",
     },
+    "watch": true,
+    "ignore_watch": [
+      "node_modules",
+      "uploads",
+      "mocks",
+    ],
   }]
 }

@@ -1,0 +1,49 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+    }
+  },
+  "plugins": [
+    "react",
+  ],
+  "globals": {
+    "document": false,
+    "localStorage": false,
+    "fetch": false,
+    "alert": false,
+    "COLOR": false,
+    "React$Element": false,
+    "ReactClass": false,
+  },
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "arrow-parens": ["error", "as-needed"],
+    "no-underscore-dangle": [2, {
+      "allow": [
+        "_id",
+      ],
+    }],
+    "no-bitwise": [2, {
+      "allow": ["~"],
+      "int32Hint": true,
+    }],
+    "react/no-unused-prop-types": [0],
+    "react/jsx-closing-bracket-location": [2, {
+      "nonEmpty": "after-props",
+      "selfClosing": "after-props",
+    }],
+    "react/jsx-filename-extension": [0],
+    "comma-dangle": [2, "always-multiline"],
+    "import/extensions": [0],
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "0.15.1",
+    },
+  }
+}

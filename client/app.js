@@ -1,50 +1,53 @@
+import 'babel-polyfill';
 import React from 'react';
 import thunk from 'redux-thunk';
-import {
-  Router,
-  Route,
-  IndexRoute,
-  useRouterHistory,
-} from 'react-router';
-import {
-  createHistory,
-} from 'history';
+import { AppContainer } from 'react-hot-loader';
 import {
   createStore,
   compose,
   applyMiddleware,
 } from 'redux';
-import reducer from './reducers/index.js';
+import {
+  Provider,
+} from 'react-redux';
+import {
+  Router,
+  Route,
+  browserHistory,
+  IndexRoute,
+} from 'react-router';
+import fetchMiddleware from 'redux-middleware-fetch';
 import {
   syncHistoryWithStore,
   routerMiddleware,
 } from 'react-router-redux';
-import {
-  Provider,
-} from 'react-redux';
+import reducer from './reducers/index';
 
-const history = useRouterHistory(createHistory)({
-  basename: URL_BASEPATH,
-});
+// routes
+import MainBoard from './containers/MainBoard.js';
+import IndexPage from './containers/IndexPage.js';
+
+import ReceivePage from './containers/ReceivePage.js'
 
 export const store = createStore(reducer, {}, compose(
   applyMiddleware(
     thunk,
-    routerMiddleware(history),
+    routerMiddleware(browserHistory),
+    fetchMiddleware,
   ),
 ));
 
-import MainBoard from './containers/MainBoard.js';
-import IndexPage from './containers/IndexPage.js';
-
-const storeHistory = syncHistoryWithStore(history, store);
+const history = syncHistoryWithStore(browserHistory, store);
 
 export default (
-  <Provider store={store}>
-    <Router history={storeHistory}>
-      <Route path="/" component={MainBoard}>
-        <IndexRoute component={IndexPage} />
-      </Route>
-    </Router>
-  </Provider>
+  <AppContainer>
+    <Provider store={store}>
+      <Router history={history}>
+        <Route path="/" component={MainBoard}>
+          <Route path=":key" component={ReceivePage} />
+          <IndexRoute component={IndexPage} />
+        </Route>
+      </Router>
+    </Provider>
+  </AppContainer>
 );

@@ -12,17 +12,21 @@ const styles = {
   },
 };
 
-class IndexPage extends Component {
+class ReceivePage extends Component {
   render() {
+    const {
+      params,
+    } = this.props;
+    console.log(params);
     return (
       <div style={styles.wrapper}>
-        hello world!~
+        hello world!
       </div>
     );
   }
 }
 
-IndexPage.PropTypes = {
+ReceivePage.PropTypes = {
 
 };
 
@@ -33,4 +37,4 @@ export default connect(
   dispatch => bindActionCreators({
 
   }, dispatch),
-)(radium(IndexPage));
+)(radium(ReceivePage));
