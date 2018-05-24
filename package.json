@@ -52,6 +52,7 @@
     "redux-middleware-fetch": "^0.1.6",
     "redux-thunk": "^2.2.0",
     "request": "^2.79.0",
+    "skeleton-placeholder-react": "^0.1.2",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-dev-server": "^2.4.1",

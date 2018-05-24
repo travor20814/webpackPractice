@@ -6,8 +6,12 @@ import radium from 'radium';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import Shimmer from 'skeleton-placeholder-react';
+
 const styles = {
   wrapper: {
+    width: '100%',
+    height: 240,
     fontSize: 30,
   },
 };
@@ -16,7 +20,10 @@ class IndexPage extends Component {
   render() {
     return (
       <div style={styles.wrapper}>
-        hello world!~
+        <Shimmer
+          type="listArticleWithPhoto"
+          height={120}
+          backgroundColor="#fff" />
       </div>
     );
   }
